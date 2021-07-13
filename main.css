@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.Todoapp-head-line {
+    padding: 52px 0 35px 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFFFFF;
+}
+
+span {
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-container {
+    position: relative;
+    height: 100vh;
+    background: rgb(2, 0, 36);
+    background: rgb(224, 45, 111);
+    background: linear-gradient(90deg, rgba(224, 45, 111, 1) 59%, rgba(48, 72, 224, 1) 100%);
+}
+
+.flex {
+    padding-left: 70px;
+    display: flex;
+    gap: 86px;
+}
+
+.todoapp-descr {
+    width: 54%;
+    align-self: center;
+}
+
+.todoapp-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 76px;
+    text-align: left;
+    color: #FFFFFF;
+    padding-bottom: 24px;
+}
+
+.card-title {
+    background-image: url(images/card.png);
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 19px 24px 48px 19px;
+    border: 1px solid #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.todoapp-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding-bottom: 32px;
+}
+
+.download-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #7556CD;
+    border: none;
+    border-radius: 80px;
+    padding: 10px 32px;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: #7556CD;
+    color: rgb(246, 253, 253);
+}
+
+i {
+    padding-left: 18px;
+}
+
+.input-icon {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.276) 100%);
+    border-radius: 8px;
+    margin-bottom: 9px;
+}
+
+.search {
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+}
+
+.search:focus::placeholder {
+    opacity: 0;
+}
+
+.fa-search {
+    color: white;
+    cursor: pointer;
+}
+
+.search::placeholder {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 21px;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.date {
+    font-family: 'Quicksand', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+    margin-bottom: 18px;
+}
+
+.note {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.276) 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.note::placeholder {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.note:focus::placeholder {
+    opacity: 0;
+}
+
+.submit {
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000000;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 4px 18px;
+}
+
+.card-content {
+    max-height: 300px;
+    background-color: white;
+    padding: 0 24px 0;
+    overflow: scroll;
+}
+
+.card-content::-webkit-scrollbar {
+    display: none;
+}
+
+.note-btn {
+    display: flex;
+    gap: 5px;
+}
+
+.new-note {
+    display: flex;
+    gap: 13px;
+    padding: 20px 0 20px 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #3A3A3A;
+    border: 6px solid black;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left-color: #5551FF;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(119, 187, 238, 0.25);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 17px;
+}
+
+h3 {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.circle {
+    background: #FFFFFF;
+    border: 2px solid #808080;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tick {
+    width: 10px;
+    height: 6px;
+    border: 2px solid green;
+    transform: rotate( -53deg);
+    border-top: none;
+    border-right: none;
+}
+
+.scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 62px;
+    text-align: center;
+}
+
+.arrow-down {
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    transform: rotate(-45deg);
+    border-top: none;
+    border-right: none;
+    margin: 0 auto;
+}
+
+.scroll-title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 23px;
+    color: #FFFFFF;
+}
