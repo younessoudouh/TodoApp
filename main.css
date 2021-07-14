@@ -5,9 +5,9 @@
 }
 
 body {
-    background-image: url(images/background.png);
-    background-size: cover;
-    background-attachment: fixed;
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(224, 45, 111, 1) 59%, rgba(48, 72, 224, 1) 100%);
 }
 
 .Todoapp-head-line {
@@ -18,7 +18,7 @@ body {
     color: #FFFFFF;
 }
 
-span {
+h1 span {
     font-style: normal;
     font-weight: normal;
     font-family: 'Montserrat', sans-serif;
@@ -39,13 +39,13 @@ span {
 }
 
 .todoapp-descr {
-    width: 54%;
+    width: 56%;
     align-self: center;
 }
 
 .todoapp-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 62px;
+    font-size: 56px;
     font-style: normal;
     font-weight: 600;
     line-height: 76px;
@@ -70,6 +70,7 @@ span {
     font-size: 24px;
     color: #FFFFFF;
     padding-bottom: 32px;
+    line-height: 160.6%;
 }
 
 .download-btn {
@@ -82,6 +83,8 @@ span {
     border-radius: 80px;
     padding: 10px 32px;
     cursor: pointer;
+    display: flex;
+    gap: 18px;
 }
 
 .download-btn:hover {
@@ -89,28 +92,29 @@ span {
     color: rgb(246, 253, 253);
 }
 
-i {
-    padding-left: 18px;
-}
-
 .input-icon {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.276) 100%);
     border-radius: 8px;
     margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0 10px 20px;
+    gap: 11px;
 }
 
 .search {
     border: none;
-    padding: 10px;
     background-color: transparent;
     outline: none;
+    font-family: 'Quicksand', sans-serif;
+    text-shadow: 2px 2px 14px
 }
 
 .search:focus::placeholder {
     opacity: 0;
 }
 
-.fa-search {
+.icon-search {
     color: white;
     cursor: pointer;
 }
@@ -120,7 +124,6 @@ i {
     font-family: 'Quicksand', sans-serif;
     font-style: normal;
     font-size: 17px;
-    line-height: 21px;
     color: #FFFFFF;
     outline: none;
 }
@@ -130,7 +133,6 @@ i {
     font-style: normal;
     font-weight: 600;
     font-size: 22px;
-    line-height: 27px;
     color: #FFFFFF;
     margin-bottom: 18px;
 }
@@ -149,7 +151,6 @@ i {
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 30px;
     color: #000000;
 }
 
@@ -170,8 +171,11 @@ i {
     padding: 4px 18px;
 }
 
+
+/*.submit:disabled {}*/
+
 .card-content {
-    max-height: 300px;
+    height: 380px;
     background-color: white;
     padding: 0 24px 0;
     overflow: scroll;
@@ -224,6 +228,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .tick {
@@ -233,6 +238,7 @@ h3 {
     transform: rotate( -53deg);
     border-top: none;
     border-right: none;
+    pointer-events: none;
 }
 
 .scroll {
@@ -250,6 +256,7 @@ h3 {
     border-top: none;
     border-right: none;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .scroll-title {
@@ -258,4 +265,12 @@ h3 {
     font-weight: normal;
     font-size: 23px;
     color: #FFFFFF;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
 }
