@@ -7,7 +7,7 @@ let notesToDelet = Array.from(document.querySelectorAll(".new-note"))
 
 
 
-setInterval(upDate, 100);
+setInterval(SetUpDate, 2000);
 btnSubmit.addEventListener("click", addNote);
 searchNote.addEventListener("keyup", filterNotes);
 cardContent.addEventListener("click", deletNote);
@@ -24,16 +24,16 @@ function disabledBtn() {
 }
 
 
-function upDate() {
+function SetUpDate() {
     let date = new Date();
     let month = date.toLocaleString('default', { month: 'long' });
     let day = date.getUTCDate();
+    console.log({ today: day })
     let year = date.getFullYear() + "";
     let yearLastTwoDigit = year.slice(2);
     console.log(day)
-    divDate.textContent = day + "Th" + " " + month + " " + "," + yearLastTwoDigit;
-    console.log(yearLastTwoDigit)
-    console.log(day)
+    divDate.textContent = day + "Th" + " " + month + "," + " " + yearLastTwoDigit;
+
 }
 
 function addNote() {

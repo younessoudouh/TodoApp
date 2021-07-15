@@ -7,7 +7,7 @@
 body {
     position: relative;
     height: 100vh;
-    background: linear-gradient(90deg, rgba(224, 45, 111, 1) 59%, rgba(48, 72, 224, 1) 100%);
+    background: linear-gradient(212deg, rgba(143, 84, 202, 1) 0%, rgba(232, 147, 156, 1) 32%, rgba(224, 45, 111, 1) 85%);
 }
 
 .Todoapp-head-line {
@@ -39,7 +39,7 @@ h1 span {
 }
 
 .todoapp-descr {
-    width: 56%;
+    width: 50%;
     align-self: center;
 }
 
@@ -107,7 +107,13 @@ h1 span {
     background-color: transparent;
     outline: none;
     font-family: 'Quicksand', sans-serif;
-    text-shadow: 2px 2px 14px
+    text-shadow: 2px 2px 14px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 21px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.15);
 }
 
 .search:focus::placeholder {
@@ -141,9 +147,14 @@ h1 span {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.276) 100%);
     border: none;
     border-radius: 8px;
-    padding: 10px 18px;
+    padding: 5px 8px;
     outline: none;
     font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
 }
 
 .note::placeholder {
@@ -164,18 +175,17 @@ h1 span {
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 30px;
     color: #000000;
     border-radius: 8px;
     cursor: pointer;
-    padding: 4px 18px;
+    padding: 4px 10px;
 }
 
 
 /*.submit:disabled {}*/
 
 .card-content {
-    height: 380px;
+    height: 462px;
     background-color: white;
     padding: 0 24px 0;
     overflow: scroll;
@@ -198,7 +208,6 @@ h1 span {
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 19px;
     color: #3A3A3A;
     border: 6px solid black;
     border-top: none;
@@ -246,6 +255,7 @@ h3 {
     left: 50%;
     bottom: 62px;
     text-align: center;
+    transform: translate(-50%);
 }
 
 .arrow-down {
@@ -273,4 +283,78 @@ h3 {
 
 .show {
     display: flex;
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        background: blue;
+        color: white;
+    }
+    .input-icon {
+        padding: 7px 0 10px 14px;
+    }
+    .date {
+        font-size: 18px;
+    }
+    .note {
+        padding: 5px 8px;
+        font-size: 18px;
+    }
+    .submit {
+        font-size: 20px;
+        padding: 3px 9px;
+    }
+    .card-content {
+        height: 369px;
+    }
+    .todoapp-title {
+        font-size: 50px;
+        font-weight: 600;
+        line-height: 76px;
+    }
+    .todoapp-subtitle {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        background: olive;
+        color: white;
+    }
+    .flex {
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 86px;
+    }
+    .todoapp-descr {
+        width: 100%;
+        align-self: flex-start;
+    }
+    .todoapp-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 36px;
+        text-align: left;
+        color: #FFFFFF;
+        padding-bottom: 14px;
+    }
+    .todoapp-subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        color: #FFFFFF;
+        padding-bottom: 30px;
+        line-height: 33px;
+    }
+    .download-btn {
+        margin: 0 auto;
+    }
+    h1 {
+        padding-left: 20px;
+    }
 }
