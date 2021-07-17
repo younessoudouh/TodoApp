@@ -6,7 +6,6 @@
 
 body {
     position: relative;
-    height: 100vh;
     background: linear-gradient(212deg, rgba(143, 84, 202, 1) 0%, rgba(232, 147, 156, 1) 32%, rgba(224, 45, 111, 1) 85%);
 }
 
@@ -24,16 +23,8 @@ h1 span {
     font-family: 'Montserrat', sans-serif;
 }
 
-.main-container {
-    position: relative;
-    height: 100vh;
-    background: rgb(2, 0, 36);
-    background: rgb(224, 45, 111);
-    background: linear-gradient(90deg, rgba(224, 45, 111, 1) 59%, rgba(48, 72, 224, 1) 100%);
-}
-
 .flex {
-    padding-left: 70px;
+    padding: 0 0 90px 70px;
     display: flex;
     gap: 86px;
 }
@@ -283,6 +274,15 @@ h3 {
 
 .show {
     display: flex;
+}
+
+@media screen and (min-width: 1400px) {
+    body {
+        height: 100vh;
+    }
+    .flex {
+        padding: 0 0 0 70px;
+    }
 }
 
 @media screen and (max-width: 1000px) {
