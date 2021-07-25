@@ -172,6 +172,11 @@ h1 span {
     padding: 4px 10px;
 }
 
+.submit:hover,
+.download-btn:hover {
+    transform: scale(0.97);
+}
+
 
 /*.submit:disabled {}*/
 
@@ -180,6 +185,7 @@ h1 span {
     background-color: white;
     padding: 0 24px 0;
     overflow: scroll;
+    position: relative;
 }
 
 .card-content::-webkit-scrollbar {
@@ -217,6 +223,7 @@ h1 span {
 h3 {
     font-weight: normal;
     font-size: 14px;
+    flex: 1;
 }
 
 .circle {
@@ -274,6 +281,34 @@ h3 {
 
 .show {
     display: flex;
+}
+
+.delet {
+    align-content: flex-end;
+    border: none;
+    background: transparent;
+    color: red;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.delet:hover {
+    transform: scale(1.5);
+}
+
+.fall {
+    transform: translate(10px, 500px);
+    transition: 1s all ease;
+    opacity: 0;
+}
+
+.fas {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    opacity: 0;
 }
 
 @media screen and (min-width: 1400px) {

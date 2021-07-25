@@ -10,6 +10,7 @@ let notesToDelet = Array.from(document.querySelectorAll(".new-note"))
 setInterval(SetUpDate, 1000);
 btnSubmit.addEventListener("click", addNote);
 searchNote.addEventListener("keyup", filterNotes);
+cardContent.addEventListener("click", checkNote)
 cardContent.addEventListener("click", deletNote);
 inputNote.addEventListener("keyup", disabledBtn)
 document.addEventListener('DOMContentLoaded', getNotes) // get data from localStorage
@@ -78,19 +79,44 @@ function filterNotes(e) {
 
 function deletNote(e) {
 
+    if (e.target.classList.contains("delet")) {
+
+
+        if (confirm("are you sure!!")) {
+            let textValue = e.target.previousElementSibling.textContent;
+            //remove from localStorage
+            removeLocalNotes(textValue);
+            e.target.parentElement.classList.add("fall");
+            document.querySelector(".fas").style.opacity = "1";
+            e.target.parentNode.addEventListener("transitionend", () => {
+                e.target.parentNode.remove();
+                document.querySelector(".fas").style.opacity = "0";
+            })
+        }
+
+
+    }
+
+}
+
+function checkNote(e) {
+
     if (e.target.classList.contains("circle")) {
 
         if (e.target.firstElementChild != null) {
-            if (confirm("are you sure!!")) {
-                let textValue = e.target.parentElement.lastElementChild.textContent;
-                //remove from localStorage
-                removeLocalNotes(textValue)
-                e.target.parentNode.remove()
-            }
+            e.target.firstElementChild.remove();
+            e.target.parentElement.lastElementChild.remove();
+
+
         } else {
             let tick = document.createElement("div");
+            let btn = document.createElement("button");
+            btn.textContent = "X";
+            btn.classList.add("delet")
+
             tick.classList.add("tick");
             e.target.appendChild(tick);
+            e.target.parentElement.appendChild(btn)
         }
 
     }
