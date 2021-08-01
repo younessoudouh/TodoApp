@@ -7,7 +7,8 @@ let notesToDelet = Array.from(document.querySelectorAll(".new-note"))
 
 
 
-setInterval(SetUpDate, 1000);
+//setInterval(SetUpDate, 1000);
+document.addEventListener('DOMContentLoaded', SetUpDate)
 btnSubmit.addEventListener("click", addNote);
 searchNote.addEventListener("keyup", filterNotes);
 cardContent.addEventListener("click", checkNote)
@@ -32,6 +33,7 @@ function SetUpDate() {
     console.log({ today: day })
     let year = date.getFullYear() + "";
     let yearLastTwoDigit = year.slice(2);
+    day = day < 10 ? "0" + day : day;
     divDate.textContent = day + "Th" + " " + month + "," + " " + yearLastTwoDigit;
 
 }
@@ -157,6 +159,7 @@ function getNotes() {
         newDiv.appendChild(circleDiv);
         newDiv.appendChild(newNote);
         cardContent.insertBefore(newDiv, cardContent.firstElementChild);
+
     })
 }
 
