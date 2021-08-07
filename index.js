@@ -4,8 +4,6 @@ let btnSubmit = document.querySelector(".submit");
 let inputNote = document.querySelector(".note");
 let searchNote = document.querySelector(".search");
 
-
-
 SetUpDate();
 btnSubmit.addEventListener("click", addNote);
 searchNote.addEventListener("keyup", filterNotes);
@@ -14,8 +12,6 @@ cardContent.addEventListener("click", deleteNote);
 inputNote.addEventListener("keyup", disabledBtn);
 document.addEventListener('DOMContentLoaded', getNotes); // get data from localStorage
 
-
-
 function disabledBtn() {
     if (inputNote.value.length >= 1) {
         btnSubmit.disabled = false;
@@ -23,7 +19,6 @@ function disabledBtn() {
         btnSubmit.disabled = true;
     }
 }
-
 
 function SetUpDate() {
     let date = new Date();
@@ -67,7 +62,6 @@ function filterNotes(e) {
     let text = e.target.value.toLowerCase();
 
     notes.forEach((note) => {
-
         if (note.textContent.toLowerCase().indexOf(text) != -1) {
             note.parentElement.classList.add("show")
             note.parentElement.classList.remove("hide")
@@ -77,14 +71,10 @@ function filterNotes(e) {
             note.parentElement.classList.add("hide")
         }
     })
-
 }
 
 function deleteNote(e) {
-
     if (e.target.classList.contains("delet")) {
-
-
         if (confirm("are you sure!!")) {
             let textValue = e.target.previousElementSibling.textContent;
             //remove from localStorage
@@ -96,17 +86,11 @@ function deleteNote(e) {
                 document.querySelector(".fas").style.opacity = "0";
             })
         }
-
-
     }
-
 }
 
 function checkNote(e) {
-
     if (e.target.classList.contains("delet")) {
-
-
         if (confirm("are you sure!!")) {
             let textValue = e.target.previousElementSibling.textContent;
             //remove from localStorage
@@ -118,21 +102,14 @@ function checkNote(e) {
                 document.querySelector(".fas").style.opacity = "0";
             })
         }
-
-
     }
-
 }
 
 function checkNote(e) {
-
     if (e.target.classList.contains("circle")) {
-
         if (e.target.firstElementChild != null) {
             e.target.firstElementChild.remove();
             e.target.parentElement.lastElementChild.remove();
-
-
         } else {
             let tick = document.createElement("div");
             let btn = document.createElement("button");
@@ -143,9 +120,7 @@ function checkNote(e) {
             e.target.appendChild(tick);
             e.target.parentElement.appendChild(btn)
         }
-
     }
-
 }
 
 function saveLocalNotes(note) {
@@ -153,14 +128,12 @@ function saveLocalNotes(note) {
 
     notesSaved.push(note);
     localStorage.setItem("notesSaved", JSON.stringify(notesSaved));
-
 }
 
 function getNotes() {
     let notesSaved = checkLocalStr();
 
     notesSaved.forEach((note) => {
-        s
         createElements(note);
 
     });
