@@ -15,6 +15,7 @@ inputNote.addEventListener("keyup", disabledBtn);
 document.addEventListener('DOMContentLoaded', getNotes); // get data from localStorage
 
 
+
 function disabledBtn() {
     if (inputNote.value.length >= 1) {
         btnSubmit.disabled = false;
@@ -103,6 +104,28 @@ function deleteNote(e) {
 
 function checkNote(e) {
 
+    if (e.target.classList.contains("delet")) {
+
+
+        if (confirm("are you sure!!")) {
+            let textValue = e.target.previousElementSibling.textContent;
+            //remove from localStorage
+            removeLocalNotes(textValue);
+            e.target.parentElement.classList.add("fall");
+            document.querySelector(".fas").style.opacity = "1";
+            e.target.parentNode.addEventListener("transitionend", () => {
+                e.target.parentNode.remove();
+                document.querySelector(".fas").style.opacity = "0";
+            })
+        }
+
+
+    }
+
+}
+
+function checkNote(e) {
+
     if (e.target.classList.contains("circle")) {
 
         if (e.target.firstElementChild != null) {
@@ -137,6 +160,7 @@ function getNotes() {
     let notesSaved = checkLocalStr();
 
     notesSaved.forEach((note) => {
+        s
         createElements(note);
 
     });
