@@ -227,7 +227,7 @@ h3 {
 }
 
 .circle {
-    background: #FFFFFF;
+    background: #fff;
     border: 2px solid #808080;
     border-radius: 50%;
     width: 20px;
@@ -238,14 +238,20 @@ h3 {
     cursor: pointer;
 }
 
+.circle-bg {
+    background: #5528be;
+    border: 0;
+}
+
 .tick {
     width: 10px;
     height: 6px;
-    border: 2px solid green;
+    border: 2px solid #fff;
     transform: rotate( -53deg);
     border-top: none;
     border-right: none;
     pointer-events: none;
+    display: none;
 }
 
 .scroll {
@@ -280,16 +286,18 @@ h3 {
 }
 
 .show {
-    display: flex;
+    display: block;
+    opacity: 1!important;
 }
 
-.delet {
+.delete {
     align-content: flex-end;
     border: none;
     background: transparent;
     color: red;
     margin-right: 10px;
     cursor: pointer;
+    opacity: 0;
 }
 
 .delet:hover {
