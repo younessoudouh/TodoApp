@@ -4,7 +4,7 @@ const searchField = document.querySelector("#search")
 const inputTodo = document.querySelector("#todo")
 const divDate = document.querySelector(".date")
 
-
+console.log("yes")
 SetUpDate()
 
 
@@ -56,20 +56,13 @@ function createElementTodo(todo) {
 }
 
 function disableBtn() {
-
-    if (inputTodo.value.length >= 0) {
-        submitTodo.removeAttribute("disabled");
-
-    } else {
-        submitTodo.disabled = true;
-        console.log("lkk")
-    }
+    submitTodo.disabled = inputTodo.value === "";
 }
 
-function rander(parameter) {
+function rander(todoss) {
     todosField.innerHTML = "";
-    parameter.forEach(element => {
-        createElementTodo(element.value)
+    todoss.forEach(todo => {
+        createElementTodo(todo.value)
     });
     inputTodo.value = "";
 }
@@ -85,9 +78,6 @@ function addTodos() {
     searchFilter()
 }
 
-
-
-
 function checkTodo(e) {
     e.target.classList.toggle("circle-bg")
     e.target.firstElementChild.classList.toggle("show")
@@ -98,16 +88,16 @@ function deleteTodo(e) {
     let todo = e.target.previousElementSibling.textContent;
 
     if (confirm("are you sure??")) {
-        filtered(todo)
+        removeTodos(todo)
         rander(todos)
+        localStorage.setItem("todos", JSON.stringify(todos))
     }
-    localStorage.setItem("todos", JSON.stringify(todos))
 }
 
-function filtered(todo) {
+function removeTodos(todo) {
 
     return todos = todos.filter(item => {
-        return item.id != todo.id;
+        return item.value != todo;
     })
 
 }
