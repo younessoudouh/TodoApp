@@ -172,6 +172,11 @@ h1 span {
     padding: 4px 10px;
 }
 
+.submit:active {
+    background-color: #5528be;
+    transition: .5s all;
+}
+
 .submit:hover,
 .download-btn:hover {
     transform: scale(0.97);
@@ -218,6 +223,13 @@ h1 span {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     margin-bottom: 17px;
+    cursor: pointer;
+}
+
+.new-note:hover {
+    box-shadow: 0px 4px 14px rgba(45, 47, 49, 0.25);
+    transition: cubic-bezier(0.39, 0.575, 0.565, 1);
+    transform: scale(1.03);
 }
 
 h3 {
@@ -302,6 +314,10 @@ h3 {
 
 .delet:hover {
     transform: scale(1.5);
+}
+
+.new-note:hover .delete {
+    opacity: 1;
 }
 
 .fall {

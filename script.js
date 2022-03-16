@@ -29,7 +29,7 @@ searchField.addEventListener("keyup", searchFilter)
 inputTodo.addEventListener("keyup", disableBtn)
 
 function createElementTodo(todo) {
-
+    const { value, id } = todo;
     var newDiv = document.createElement("li");
     let circleDiv = document.createElement("div");
     let newNote = document.createElement("h3");
@@ -39,13 +39,13 @@ function createElementTodo(todo) {
     deleteBtn.classList.add("delete")
     tick.classList.add("tick")
 
-    deleteBtn.onclick = deleteTodo;
+    deleteBtn.onclick = () => deleteTodo(id);
     newDiv.classList.add("new-note");
     circleDiv.classList.add("circle");
     circleDiv.onclick = checkTodo;
     newNote.classList.add("new-note-content");
 
-    newNote.textContent = todo;
+    newNote.textContent = value;
     circleDiv.appendChild(tick)
     newDiv.appendChild(circleDiv);
     newDiv.appendChild(newNote);
@@ -60,20 +60,24 @@ function disableBtn() {
 function rander(todoss) {
     todosField.innerHTML = "";
     todoss.forEach(todo => {
-        createElementTodo(todo.value)
+        createElementTodo(todo)
     });
     inputTodo.value = "";
 }
 
+console.log(todos[0].id === todos[1].id)
+
 function addTodos() {
     let todo = inputTodo.value;
     todos.push({ value: todo, id: Date.now() });
+    console.log(todos)
     localStorage.setItem("todos", JSON.stringify(todos));
 
     if (todos) {
         rander(todos)
     }
     searchFilter()
+    disableBtn()
 }
 
 function checkTodo(e) {
@@ -82,26 +86,22 @@ function checkTodo(e) {
     e.target.parentNode.lastElementChild.classList.toggle("show")
 }
 
-function deleteTodo(e) {
-    let todo = e.target.previousElementSibling.textContent;
+function deleteTodo(todoId) {
 
     if (confirm("are you sure??")) {
-        removeTodos(todo)
+        removeTodos(todoId)
         rander(todos)
         localStorage.setItem("todos", JSON.stringify(todos))
     }
 }
 
-function removeTodos(todo) {
-
+function removeTodos(todoId) {
     return todos = todos.filter(item => {
-        return item.value != todo;
+        return item.id !== todoId;
     })
-
 }
 
 function searchFilter() {
-
     let todo = searchField.value.toLowerCase();
     let result = todos.filter(word => word.value.toLowerCase().includes(todo));
     rander(result)
