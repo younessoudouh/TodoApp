@@ -4,7 +4,6 @@ const searchField = document.querySelector("#search")
 const inputTodo = document.querySelector("#todo")
 const divDate = document.querySelector(".date")
 
-console.log("yes")
 SetUpDate()
 
 
@@ -12,7 +11,6 @@ function SetUpDate() {
     let date = new Date();
     let month = date.toLocaleString('default', { month: 'long' });
     let day = date.getDate();
-    console.log({ today: day })
     let year = date.getFullYear() + "";
     let yearLastTwoDigit = year.slice(2);
     day = day < 10 ? "0" + day : day;
