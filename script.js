@@ -21,15 +21,15 @@ function SetUpDate() {
 
 let todos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
 
-rander(todos)
+render(todos)
 
 
 submitTodo.addEventListener("click", addTodos);
-searchField.addEventListener("keyup", searchFilter)
+searchField.addEventListener("keyup", searchTodos)
 inputTodo.addEventListener("keyup", disableBtn)
 
 function createElementTodo(todo) {
-    const { value, id } = todo;
+    const { value, id, complited } = todo;
     var newDiv = document.createElement("li");
     let circleDiv = document.createElement("div");
     let newNote = document.createElement("h3");
@@ -42,7 +42,8 @@ function createElementTodo(todo) {
     deleteBtn.onclick = () => deleteTodo(id);
     newDiv.classList.add("new-note");
     circleDiv.classList.add("circle");
-    circleDiv.onclick = checkTodo;
+    if (complited) circleDiv.classList.add("circle-bg");
+    circleDiv.onclick = () => checkTodo(id);
     newNote.classList.add("new-note-content");
 
     newNote.textContent = value;
@@ -57,7 +58,7 @@ function disableBtn() {
     submitTodo.disabled = inputTodo.value === "";
 }
 
-function rander(todoss) {
+function render(todoss) {
     todosField.innerHTML = "";
     todoss.forEach(todo => {
         createElementTodo(todo)
@@ -65,32 +66,31 @@ function rander(todoss) {
     inputTodo.value = "";
 }
 
-console.log(todos[0].id === todos[1].id)
-
 function addTodos() {
-    let todo = inputTodo.value;
-    todos.push({ value: todo, id: Date.now() });
-    console.log(todos)
+    let todoValue = inputTodo.value;
+    todos.push({ value: todoValue, complited: false, id: Date.now() });
     localStorage.setItem("todos", JSON.stringify(todos));
 
-    if (todos) {
-        rander(todos)
-    }
-    searchFilter()
+    render(todos)
+    searchTodos()
     disableBtn()
 }
 
-function checkTodo(e) {
-    e.target.classList.toggle("circle-bg")
-    e.target.firstElementChild.classList.toggle("show")
-    e.target.parentNode.lastElementChild.classList.toggle("show")
+function checkTodo(id) {
+    todos.forEach((todo, index, todos) => {
+        if (todo.id === id) {
+            todos[index].complited = !todos[index].complited;
+        }
+    })
+    localStorage.setItem("todos", JSON.stringify(todos));
+    render(todos);
 }
 
 function deleteTodo(todoId) {
 
     if (confirm("are you sure??")) {
         removeTodos(todoId)
-        rander(todos)
+        render(todos)
         localStorage.setItem("todos", JSON.stringify(todos))
     }
 }
@@ -101,8 +101,8 @@ function removeTodos(todoId) {
     })
 }
 
-function searchFilter() {
+function searchTodos() {
     let todo = searchField.value.toLowerCase();
     let result = todos.filter(word => word.value.toLowerCase().includes(todo));
-    rander(result)
+    render(result)
 }

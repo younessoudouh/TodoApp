@@ -255,6 +255,14 @@ h3 {
     border: 0;
 }
 
+.circle-bg+.new-note-content {
+    text-decoration: line-through;
+}
+
+.circle-bg .tick {
+    display: block;
+}
+
 .tick {
     width: 10px;
     height: 6px;
@@ -295,11 +303,6 @@ h3 {
 
 .hide {
     display: none;
-}
-
-.show {
-    display: block;
-    opacity: 1!important;
 }
 
 .delete {
